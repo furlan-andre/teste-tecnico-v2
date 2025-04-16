@@ -1,7 +1,9 @@
-﻿namespace Thunders.TechTest.OutOfBox.Queues;
+﻿using Thunders.TechTest.Domain.Pedagios.Dtos;
+
+namespace Thunders.TechTest.OutOfBox.Queues;
 
 public interface IMessageSender
 {
-    Task SendLocal(object message);
-    Task Publish(object message);
+    Task SendLocal(PedagioDto message);
+    Task Publish(PedagioDto message);
 }

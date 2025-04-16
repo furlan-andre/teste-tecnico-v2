@@ -14,4 +14,8 @@
     <PackageReference Include="Rebus.ServiceProvider" Version="10.2.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Thunders.TechTest.Domain\Thunders.TechTest.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
