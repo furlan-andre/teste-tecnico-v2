@@ -11,6 +11,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Aspire.StackExchange.Redis.DistributedCaching" Version="9.2.0" />
+    <PackageReference Include="Aspire.StackExchange.Redis.OutputCaching" Version="9.2.0" />
     <PackageReference Include="AspireRunner.AspNetCore" Version="1.4.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.4">
       <PrivateAssets>all</PrivateAssets>
@@ -25,6 +27,10 @@
     <ProjectReference Include="..\Thunders.TechTest.Infra\Thunders.TechTest.Infra.csproj" />
     <ProjectReference Include="..\Thunders.TechTest.OutOfBox\Thunders.TechTest.OutOfBox.csproj" />
     <ProjectReference Include="..\Thunders.TechTest.ServiceDefaults\Thunders.TechTest.ServiceDefaults.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Relatorios\Ranqueamento\" />
   </ItemGroup>
 
 </Project>

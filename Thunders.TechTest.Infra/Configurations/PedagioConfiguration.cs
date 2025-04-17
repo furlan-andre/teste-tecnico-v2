@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Thunders.TechTest.Domain;
 using Thunders.TechTest.Domain.Pedagios;
 
 namespace Thunders.TechTest.Infra.Configurations;

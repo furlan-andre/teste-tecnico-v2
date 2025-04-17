@@ -4,10 +4,10 @@ namespace Thunders.TechTest.Domain.Pracas;
 
 public class Praca
 {
-    public int Id { get; set; }
-    public string Nome { get; set; }
-    public int CidadeId { get; set; }
-    public virtual Cidade Cidade { get; set; }
+    public int Id { get; init; }
+    public string Nome { get; init; }
+    public int CidadeId { get; init; }
+    public virtual Cidade Cidade { get; init; }
 
     public Praca(string nome, int cidadeId)
     {

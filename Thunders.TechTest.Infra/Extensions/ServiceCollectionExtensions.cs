@@ -1,8 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Thunders.TechTest.Infra.Database;
 
-namespace Thunders.TechTest.Infra.Database;
+namespace Thunders.TechTest.Infra.Extensions;
 
 public static class ServiceCollectionExtensions
 {

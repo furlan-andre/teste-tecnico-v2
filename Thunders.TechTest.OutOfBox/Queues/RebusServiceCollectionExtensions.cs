@@ -1,10 +1,10 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using System.Reflection;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Rebus.Config;
-using System.Reflection;
-using Rebus.Backoff;
 using Rebus.Retry.Simple;
 using Thunders.TechTest.Domain.Pedagios.Dtos;
+using Thunders.TechTest.Domain.Relatorios.Dtos;
 
 namespace Thunders.TechTest.OutOfBox.Queues
 {
@@ -22,14 +22,12 @@ namespace Thunders.TechTest.OutOfBox.Queues
                     {
                         t.UseRabbitMq(configuration.GetConnectionString("RabbitMq"), "Thunders.TechTest")
                             .AddClientProperties(new Dictionary<string, string> {["performance"] = "high"})
-                            .Prefetch(50)
-                            ;
+                            .Prefetch(50);
                     })
                     .Options(o =>
                     {
-                        
                         o.SetNumberOfWorkers(Environment.ProcessorCount * 2);
-                        // o.SetMaxParallelism(50);
+                        o.SetMaxParallelism(50);
                         o.RetryStrategy(maxDeliveryAttempts: 3, secondLevelRetriesEnabled: true);
                     }), 
                 onCreated: async bus =>
@@ -41,7 +39,6 @@ namespace Thunders.TechTest.OutOfBox.Queues
                             await bus.Subscribe(type);
                         }
                     }
-
                 });
 
             return services;
@@ -50,7 +47,13 @@ namespace Thunders.TechTest.OutOfBox.Queues
 
     public class SubscriptionBuilder
     {
-        internal List<Type> TypesToSubscribe { get; private set; } = [typeof(PedagioDto)];
+        internal List<Type> TypesToSubscribe { get; private set; } = 
+            [
+                typeof(PedagioDto),
+                typeof(RanqueamentoMensalPorPracaDto),
+                typeof(RelatorioQuantidadeTipoPracaDto),
+                typeof(RelatorioTotalHoraCidadeDto)
+            ];
 
         public SubscriptionBuilder Add<T>()
         {

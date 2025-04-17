@@ -4,8 +4,8 @@ namespace Thunders.TechTest.Domain.Cidades;
 
 public class Cidade
 {
-    public int Id { get; set; }
-    public string Nome { get; set; }
-    public int EstadoId { get; set; }
-    public Estado Estado { get; set; }
+    public int Id { get; init; }
+    public string Nome { get; init; }
+    public int EstadoId { get; init; }
+    public Estado Estado { get; init; }
 }

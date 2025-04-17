@@ -7,12 +7,12 @@ namespace Thunders.TechTest.Domain.Tarifas;
 
 public class Tarifa
 {
-    public int Id { get; set; }
-    public int PracaId { get; set; }
-    public virtual Praca Praca { get; set; }
-    public TipoDeVeiculo TipoDeVeiculo { get; set; }
+    public int Id { get; init; }
+    public int PracaId { get; init; }
+    public virtual Praca Praca { get; init; }
+    public TipoDeVeiculo TipoDeVeiculo { get; init; }
     [Precision(6, 2)]
-    public decimal Valor { get; set; }
+    public decimal Valor { get; init; }
     
     protected Tarifa() { }
 

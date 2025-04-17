@@ -14,6 +14,7 @@ using Thunders.TechTest.OutOfBox.Queues;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.AddRedisDistributedCache("cache");
 builder.WebHost.ConfigureKestrel(
     serverOptions =>
     {
@@ -38,8 +39,7 @@ builder.Services.AddResiliencePipeline("http-pipeline", pipelineBuilder =>
         FailureRatio = 0.3,
         SamplingDuration = TimeSpan.FromSeconds(10),
         MinimumThroughput = 8,
-        BreakDuration = TimeSpan.FromSeconds(30),
-        // ShouldHandle = args => ValueTask.FromResult(args.Outcome.Exception is not null)
+        BreakDuration = TimeSpan.FromSeconds(30)
     });
     
     pipelineBuilder.AddTimeout(TimeSpan.FromSeconds(5));
@@ -58,8 +58,6 @@ builder.Services.AddRateLimiter(options =>
             }));
 });
 
-// ThreadPool.SetMinThreads(100, 1000);
-
 builder.Services.ConfigureHttpJsonOptions(options => 
 {
     options.SerializerOptions.WriteIndented = false;
@@ -72,7 +70,6 @@ builder.Services.AddControllers();
 
 var features = Features.BindFromConfiguration(builder.Configuration);
 
-// Add services to the container.
 builder.Services.AddProblemDetails();
 
 if (features.UseMessageBroker)

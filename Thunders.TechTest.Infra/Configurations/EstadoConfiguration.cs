@@ -1,7 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Thunders.TechTest.Domain.Estados;
-using Thunders.TechTest.Domain.Pracas;
 
 namespace Thunders.TechTest.Infra.Configurations;
 

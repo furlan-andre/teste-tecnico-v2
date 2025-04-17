@@ -5,12 +5,12 @@ namespace Thunders.TechTest.Domain.Pedagios;
 
 public class Pedagio
 {
-    public int Id { get; set; }
-    public string Placa { get; set; }
-    public decimal ValorPago { get; set; }
-    public int PracaId { get; set; }
-    public TipoDeVeiculo TipoDeVeiculo { get; set; }
-    public DateTime DataDaUtilizacao { get; set; }
+    public int Id { get; init; }
+    public string Placa { get; init; }
+    public decimal ValorPago { get; init; }
+    public int PracaId { get; init; }
+    public TipoDeVeiculo TipoDeVeiculo { get; init; }
+    public DateTime DataDaUtilizacao { get; init; }
     
     protected Pedagio() { }
     public  Pedagio(string placa, int pracaId, int tipoDeVeiculo,decimal valorPago, DateTime dataDaUtilizacao) {

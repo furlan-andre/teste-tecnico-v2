@@ -6,7 +6,5 @@ public record PedagioDto
     public int PracaId { get; set; }
     public DateTime DataDeUtilizacao { get; set; }
     public int TipoDeVeiculo { get; set; }
-    
-    // (string Placa, int PracaId, DateTime DataDeUtilizacao, int TipoDeVeiculo);
 }
 

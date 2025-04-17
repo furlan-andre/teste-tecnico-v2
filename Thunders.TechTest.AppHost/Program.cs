@@ -18,8 +18,10 @@ var sqlServer = builder.AddSqlServer("SqlServerInstance", sqlServerPassword)
 var database = sqlServer.AddDatabase("ThundersTechTestDb", "ThundersTechTest");
 
 var api = builder.AddProject<Projects.Thunders_TechTest_ApiService>("api")
+    .WithReplicas(5)    
     .WithReference(rabbitMq)
     .WithReference(database)
+    .WithReference(cache)
     .WaitFor(rabbitMq)
     .WaitFor(database);
 
